@@ -4,17 +4,17 @@ export const siteConfig = {
   subtitle: "LUNA elevates your raiding experience with the latest premium features at your fingertips.",
   
   links: {
-    login: "https://your-login-url.com",
-    trustpilot: "https://www.trustpilot.com/review/your-business",
-    discord: "https://discord.gg/your-invite",
-    discordWidgetId: "YOUR_DISCORD_SERVER_ID",
-    sellApp: "https://sell.app/your-store",
-    lunaPurchase: "https://sell.app/your-main-app-store"
+    login: "https://panel.lunaraids.vip/login",
+    trustpilot: "https://uk.trustpilot.com/review/lunaraids.vip",
+    discord: "https://discord.gg/2EjgYFK5RA",
+    discordWidgetId: "1382031759834615868",
+    sellApp: "https://lunatools.mysellauth.com/product/discord-tokens-fresh",
+    lunaPurchase: "https://lunatoolsio.sell.app/product/product-1744163763?quantity=1"
   },
 
   alert: {
     enabled: true,
-    message: "🎉 Special Offer! Get 20% off on all token purchases this week only!",
+    message: "🎉 Special Offer! Get 10% off on all purchases this week only!",
     link: "" // Optional: "https://your-link.com"
   },
   
@@ -24,7 +24,7 @@ export const siteConfig = {
   },
   
   theme: {
-    season: "winter", // "winter", "spring", "summer", "fall"
+    season: "summer", // "winter", "spring", "summer", "fall"
     colors: {
       winter: {
         primary: "from-blue-600 to-cyan-600",
@@ -61,9 +61,10 @@ export const siteConfig = {
     operational: false,
     message: "Some services are currently undergoing scheduled maintenance.",
     services: [
-      { name: "API", status: "down" },
-      { name: "Dashboard", status: "maintenance" },
-      { name: "Discord Bot", status: "operational" },
+      { name: "API", status: "operational" },
+      { name: "Dashboard", status: "operational" },
+      { name: "LUNA V9", status: "operational" },
+      { name: "LUNA V8", status: "down" },
       { name: "Payment Processing", status: "operational" }
     ]
   },
