@@ -58,14 +58,14 @@ export const siteConfig = {
   },
   
   status: {
-    operational: false,
+    operational: true,
     message: "Some services are currently undergoing scheduled maintenance.",
     services: [
-      { name: "API", status: "operational" },
-      { name: "Dashboard", status: "operational" },
-      { name: "LUNA JOINER", status: "down" },
       { name: "LUNA V9", status: "operational" },
-      { name: "LUNA V8", status: "down" },
+      { name: "LUNA JOINER", status: "operational" },
+      { name: "Dashboard", status: "operational" },
+      { name: "API", status: "operational" },
+      { name: "LUNA V8", status: "maintenance" },
       { name: "Payment Processing", status: "operational" }
     ]
   },
