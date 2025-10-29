@@ -51,7 +51,7 @@ export const siteConfig = {
   },
   
   purchase: {
-    inStock: true,
+    inStock: false,
     pricePerToken: 0.25,
     outOfStockMessage: "Currently out of stock. Please check back later!",
     inStockMessage: "Tokens available now!"
@@ -63,6 +63,7 @@ export const siteConfig = {
     services: [
       { name: "API", status: "operational" },
       { name: "Dashboard", status: "operational" },
+      { name: "LUNA JOINER", status: "down" },
       { name: "LUNA V9", status: "operational" },
       { name: "LUNA V8", status: "down" },
       { name: "Payment Processing", status: "operational" }
@@ -193,6 +194,62 @@ export const siteConfig = {
       {
         title: "15. Is Personal Data about me secure?",
         content: "We use appropriate technical, organizational, and administrative security measures to protect any information we hold in our records from loss, misuse, and unauthorized access, disclosure, alteration, and destruction. However, no company or service can guarantee complete security. Unauthorized entry or use, hardware or software failure, and other factors, may compromise the security of user information at any time. Among other practices, your account is protected by a password for your privacy and security. You must prevent unauthorized access to your account and Personal Data by selecting and protecting your password appropriately, enabling 2FA and limiting access to your computer or device and browser by signing off after you have finished accessing your account."
+      },
+      {
+        title: "16. Cookies and Other Tracking Technologies",
+        content: "Cookies Our Websites and some of our Services use cookies (small text files containing a string of alphanumeric characters that we put on your computer) and other similar tracking technologies (like web beacons, tags, and scripts) to uniquely identify your browser and to gather information about how you interact with the Websites and Services. We use this information for the following purposes: — To assist you in navigation; — To assist you in registration, login, and your ability to provide feedback; — To analyze your use of our products, Services, or applications; and — To assist with our promotional and marketing efforts. Please consult our Cookie Policy for more information about the type of cookies and tracking technologies that we use on this Website and why, and how to accept and reject them."
+      },
+      {
+        title: "17. Email Tracking",
+        content: "We also may use clear gifs and modified links in HTML-based emails sent to our users to track which emails are opened by recipients. This information is used to enable more accurate reporting, improve the effectiveness of our marketing, and make our Services and Websites better for our users."
+      },
+      {
+        title: "18. Analytics",
+        content: "We also use Google Analytics for better understanding your use of our Websites and Services. The services collect information such as how often users visit the Website, what pages they visit and what other sites they used prior to visiting. We use the data collected to track and examine the use of the Websites, to prepare reports on its activities and share them with other services. Please read Google Analytics Terms of Use, Google Privacy Policy Terms of Use for better understanding how do they use this data."
+      },
+      {
+        title: "19. How long do we keep your information?",
+        content: "To meet our legal and regulatory obligations, we hold your information while you are a customer and for a period after that. We do not hold it for longer than necessary. We may also hold your information if we have obtained your consent."
+      },
+      {
+        title: "20. Consent",
+        content: "Sometimes we need your consent to use your Personal Data. With direct marketing for example, we need your consent to make you aware of products and Services which may be of interest to you. We may do this by email, text, or other digital media. You can decide if you want to accept direct marketing communications from Company after signing up for our products or Services (in user area Profile Section). You can remove your consent at any time by using the unsubscribe link in the email communications we send or in user area profile section if you think we got your consent by mistake or you decided to change your decision."
+      },
+      {
+        title: "21. Your Privacy Rights",
+        content: "WHAT CHOICES DO I HAVE? You can always opt not to disclose information to us, but keep in mind some information may be needed to register with us or to take advantage of some of our features and/or Services."
+      },
+      {
+        title: "22. MARKETING COMMUNICATIONS",
+        content: "You can opt-out of receiving certain promotional or marketing communications from us at any time, by using the unsubscribe link in the email communications we send or by unchecking checkbox in your profile section in user area. If you have any account for our Services, we will still send you non-promotional communications, like service related emails."
+      },
+      {
+        title: "23. How can I exercise my Data Subject Rights (update, access, delete, or modify my information)?",
+        content: "If you would like to access, review, update, rectify, and/or delete any Personal Data we hold about you, you can make the request directly lunaofficial@gmail.com. Once we receive it, our Privacy Team will examine your request and respond to you as soon as possible. Please note that we may still use any aggregated and de-identified Personal Data that does not identify any individual and may also retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our contractual agreements."
+      },
+      {
+        title: "24. International Data Transfers",
+        content: "By using the Services, you acknowledge that Company will use your information in the United Kingdom, European Economic Area (EEA), BVI and any other country where the Company operates. Please be aware that the privacy laws and standards in certain countries, including the rights of authorities to access your Personal Data, may differ from those that apply in the country in which you reside. We will transfer Personal Data only to these countries to which we are permitted by law to transfer Personal Data, and we will take steps to ensure that your Personal Data continues to enjoy appropriate protections. Privacy Shield Company may rely on the EU-US Privacy Shield to transfer Personal Data to some of our third-party service providers in the United States like Google, where they are certified to receive such information under the Privacy Shield Program. Company provides a voluntary service; meaning you can choose whether you want to use the Services. However, if you want to use the Services, you need to agree to our Terms of Service, which set out the contract between Company and its customers. As we operate in countries worldwide and use technical infrastructure to deliver the Services to you, in accordance with the contract between us, we need to transfer your Personal Data to jurisdictions as necessary to provide the Services and to comply with local laws. Simply put, we cannot provide you with the Services and perform our contract with you without moving your Personal Data around the world."
+      },
+      {
+        title: "25. Linked Websites",
+        content: "For your convenience, hyperlinks may be posted on the Websites that link to other websites (the “Linked Sites”). We are not responsible for, and this Privacy Policy does not apply to, the privacy practices of any Linked Sites or of any companies that we do not own or control. Linked Sites may collect information in addition to that which we collect on our Websites. We do not endorse any of these Linked Sites, the services or products described or offered on such Linked Sites, or any of the content contained on the Linked Sites. We encourage you to seek out and read the privacy policy of each Linked Site that you visit to understand how the information that is collected about you is used and protected."
+      },
+      {
+        title: "26. Your Responsibilities",
+        content: "If you use our Services, you may in your sole discretion collect certain Personal Data, such as when scraping third party websites. This means you process Personal Data and, to the extent you do so, under EU law, you are an independent controller of data relating to individuals that you may have obtained through your use of the Services. It is your sole responsibility to determine the legality of collecting, storing, controlling, or processing such Personal Data. You are responsible for protecting Personal Data you collect or process and complying with all relevant legal requirements when you use the Services. This includes applicable data protection and privacy laws that govern the ways in which you can use Personal Data. Company is not responsible for, and this Privacy Policy does not apply to, any of the Personal Data that you choose to collect or store as a part of your use of the Services. If Company and you are found to be joint data controllers or processors of Personal Data, and if Company is sued, fined, or otherwise incurs expenses because of something that you did as a joint data controller or processor, you agree to indemnify Company for the expenses and fees (including any legal fees or fines) it occurs in connection with your control or processing of Personal Data."
+      },
+      {
+        title: "27. Children",
+        content: "Company does not knowingly collect or solicit Personal Data from anyone under the age of 18. If you are under 18, please do not attempt to register for the Services or send any Personal Data about yourself to us. If we learn that we have collected Personal Data from a child under age 18, we will delete that information as quickly as possible. If you believe that a child under 18 may have provided us Personal Data, please contact us at lunaofficial@gmail.com"
+      },
+      {
+        title: "28. Will Company ever change this policy?",
+        content: "We are constantly trying to improve our Websites and Services, so we may amend or update this Privacy Policy from time to time. You are responsible for periodically reviewing this Privacy Policy."
+      },
+      {
+        title: "29. What if I have questions about this policy?",
+        content: "If you have any questions or concerns regarding our Privacy Policy or Cookies Policy, please send us a message to lunaofficial@gmail.com, and we will do our best to resolve your concerns."
       }
     ]
   }
