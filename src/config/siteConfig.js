@@ -59,7 +59,7 @@ export const siteConfig = {
   
   status: {
     operational: true,
-    message: "Some services are currently undergoing scheduled maintenance.",
+    message: "",
     services: [
       { name: "LUNA V9", status: "operational" },
       { name: "LUNA JOINER", status: "operational" },
