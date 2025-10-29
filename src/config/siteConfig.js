@@ -135,8 +135,8 @@ export const siteConfig = {
     lastUpdated: "January 1, 2025",
     sections: [
       {
-        title: "1. Acceptance of Terms",
-        content: "By accessing and using LUNA, you accept and agree to be bound by the terms and provision of this agreement."
+        title: "1. GENERAL PROVISIONS",
+        content: "The Agreement shall enter into force on the date of posting it on the Company website. \nChanges made by the Company in the Agreement shall enter into force immediately from the date of posting on its website of the new version of the Agreement. The user must periodically review current version of the Agreement. Current version of the Agreement is always posted on the Company website lunaraids.com/tos. User accepts the terms of the Agreement: By purchasing the Company software on the Company website; Or starting use of the service (its separate functions) provided by the Company software or website. If the user does not agree with the terms of this Agreement, he/she shall immediately cease using the services or website of the Company."
       },
       {
         title: "2. Use License",
