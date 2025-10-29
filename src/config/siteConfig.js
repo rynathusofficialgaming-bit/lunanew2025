@@ -8,7 +8,7 @@ export const siteConfig = {
     trustpilot: "https://uk.trustpilot.com/review/lunaraids.vip",
     discord: "https://discord.gg/2EjgYFK5RA",
     discordWidgetId: "1382031759834615868",
-    sellApp: "https://lunatools.mysellauth.com/product/discord-tokens-fresh",
+    sellApp: "https://lunatoolsio.sell.app/product/product-1761739072?quantity=1",
     lunaPurchase: "https://lunatoolsio.sell.app/product/product-1744163763?quantity=1"
   },
 
@@ -51,10 +51,10 @@ export const siteConfig = {
   },
   
   purchase: {
-    inStock: false,
-    pricePerToken: 0.25,
+    inStock: true,
+    pricePerToken: 0.30,
     outOfStockMessage: "Currently out of stock. Please check back later!",
-    inStockMessage: "Tokens available now!"
+    inStockMessage: "Email Verified Tokens available now!"
   },
   
   status: {
