@@ -123,6 +123,11 @@ export const siteConfig = {
       name: "Dev F",
       rating: 5,
       text: "I found this tool to be very useful in aiding my discord experience. The customer service was top tier, hands down the main reason i was able to learn so fast was how much help i received from the owner, I've never had this experience with any other software. Luna is an amazing tool to use, i recommend it to everyone that i know. I truly have no issues with it other than wishing it was compatible on mobile. 10/10 overall a great experience."
+    },
+    {
+      name: "n4nofry",
+      rating: 5,
+      text: "genuinly best raider ive used, ive tried others and had no real luck. Now that i have the hang of this it really does work and is super easy to use with the UI tools."
     }
   ],
   
