@@ -65,6 +65,7 @@ export const siteConfig = {
       { name: "LUNA JOINER", status: "operational" },
       { name: "Dashboard", status: "operational" },
       { name: "API", status: "operational" },
+      { name: "VC CRASHER", status: "operational" },
       { name: "Payment Processing", status: "operational" }
     ]
   },
