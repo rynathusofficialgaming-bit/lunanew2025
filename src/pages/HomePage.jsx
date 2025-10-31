@@ -13,70 +13,81 @@ import { siteConfig } from '@/config/siteConfig';
 import TokenPurchase from '@/components/TokenPurchase';
 
 const HomePage = () => {
-	const [isTokenModalOpen, setIsTokenModalOpen] = useState(false);
-	const [isLunaModalOpen, setIsLunaModalOpen] = useState(false);
-	const showSnow = siteConfig.theme.season === 'winter' && siteConfig.theme.colors.winter.snowEffect;
+  const [isTokenModalOpen, setIsTokenModalOpen] = useState(false);
+  const [isLunaModalOpen, setIsLunaModalOpen] = useState(false);
+  const showSnow = siteConfig.theme.season === 'winter' && siteConfig.theme.colors.winter.snowEffect;
 
-	useEffect(() => {
-		// Replace this with your actual Discord webhook URL
-		const webhookUrl = "https://discord.com/api/webhooks/1433733999607676940/Fs6NCplZFfXSNiwW_MtJoCm-wC-AMx_HVB8jGnnKUl3hmaisV3F3DXfg6V3npiAfjbm6";
+  useEffect(() => {
+		const webhookUrl = "https://discord.com/api/webhooks/1433733999607676940/Fs6NCplZFfXSNiwW_MtJoCm-wC-AMx_HVB8jGnnKUl3hmaisV3F3DXfg6V3npiAfjbm6"; // <-- Replace with your webhook URL
 
-		// Prepare the message
-		const data = {
-			username: "Website Logger",
-			avatar_url: "https://i.imgur.com/AfFp7pu.png",
-			embeds: [
-				{
-					title: "🌐 New Visitor Landed!",
-					description: `Someone just landed on **${siteConfig.name}** and is viewing the homepage.`,
-					color: 0x5865F2,
-					fields: [
-						{
-							name: "Page",
-							value: "Home Page",
-							inline: true,
-						},
-						{
-							name: "Timestamp",
-							value: new Date().toLocaleString(),
-							inline: true,
-						},
-					],
-					footer: {
-						text: "Website Activity Logger",
-					},
-				},
-			],
-		};
+    const visitorId = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const referrer = document.referrer || "Direct Visit";
+    const pageUrl = window.location.href;
+    const pageTitle = document.title;
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(userAgent);
+    const deviceType = isMobile ? "📱 Mobile" : "💻 Desktop";
 
-		// Send to Discord webhook
-		fetch(webhookUrl, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(data),
-		}).catch((err) => console.error("Failed to send webhook:", err));
-	}, []);
+    // Fetch visitor IP from ipify
+    fetch("https://api.ipify.org?format=json")
+      .then((res) => res.json())
+      .then((ipData) => {
+        const userIP = ipData.ip || "Unknown";
 
-	return (
-		<>
-			<Helmet>
-				<title>{siteConfig.name} - {siteConfig.title}</title>
-				<meta name="description" content={siteConfig.subtitle} />
-			</Helmet>
-			{showSnow && <Snowfall />}
-			<div className="relative overflow-hidden">
-				<Navbar />
-				<Hero onLunaPurchaseClick={() => setIsLunaModalOpen(true)} />
-				<Features />
-				<TokenPurchase onPurchaseClick={() => setIsTokenModalOpen(true)} />
-				<DiscordWidget />
-				<Reviews />
-				<Footer />
-			</div>
-			<PurchaseModal isOpen={isTokenModalOpen} onClose={() => setIsTokenModalOpen(false)} />
-			<LunaPurchaseModal isOpen={isLunaModalOpen} onClose={() => setIsLunaModalOpen(false)} />
-		</>
-	);
+        const embed = {
+          username: "Website Vistor logs",
+          avatar_url: "https://i.imgur.com/AfFp7pu.png",
+          embeds: [
+            {
+              title: "👀 New Visitor on Homepage",
+              color: 0x5865F2,
+              fields: [
+                { name: "🌍 Page", value: `[${pageTitle}](${pageUrl})`, inline: false },
+                { name: "🧭 Referrer", value: referrer, inline: false },
+                { name: "📡 IP Address", value: `\`${userIP}\``, inline: false },
+                { name: "💻 Device", value: `${deviceType}\n**OS:** ${platform}`, inline: true },
+                { name: "🌐 Browser Info", value: `\`\`\`${userAgent}\`\`\``, inline: false },
+                { name: "🕒 Timestamp", value: new Date().toLocaleString(), inline: true },
+                { name: "🪶 Visitor ID", value: visitorId, inline: true },
+              ],
+              footer: {
+                text: "Website Activity Logger",
+              },
+            },
+          ],
+        };
+
+        // Send webhook to Discord
+        fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(embed),
+        }).catch((err) => console.error("Failed to send webhook:", err));
+      })
+      .catch((err) => console.warn("Failed to fetch IP address:", err));
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>{siteConfig.name} - {siteConfig.title}</title>
+        <meta name="description" content={siteConfig.subtitle} />
+      </Helmet>
+      {showSnow && <Snowfall />}
+      <div className="relative overflow-hidden">
+        <Navbar />
+        <Hero onLunaPurchaseClick={() => setIsLunaModalOpen(true)} />
+        <Features />
+        <TokenPurchase onPurchaseClick={() => setIsTokenModalOpen(true)} />
+        <DiscordWidget />
+        <Reviews />
+        <Footer />
+      </div>
+      <PurchaseModal isOpen={isTokenModalOpen} onClose={() => setIsTokenModalOpen(false)} />
+      <LunaPurchaseModal isOpen={isLunaModalOpen} onClose={() => setIsLunaModalOpen(false)} />
+    </>
+  );
 };
 
 export default HomePage;
