@@ -13,7 +13,7 @@ export const siteConfig = {
   },
 
   alert: {
-    enabled: true,
+    enabled: false,
     message: "🎉 Special Offer! Get 10% off on all purchases this week only!",
     link: "" // Optional: "https://your-link.com"
   },
@@ -24,13 +24,13 @@ export const siteConfig = {
   },
   
   theme: {
-    season: "summer", // "winter", "spring", "summer", "fall"
+    season: "winter", // "winter", "spring", "summer", "fall"
     colors: {
       winter: {
         primary: "from-blue-600 to-cyan-600",
         glow: "rgba(59, 130, 246, 0.5)",
         accent: "cyan",
-        snowEffect: true // Toggle snow effect for winter
+        snowEffect: false // Toggle snow effect for winter
       },
       spring: {
         primary: "from-green-600 to-emerald-600",
