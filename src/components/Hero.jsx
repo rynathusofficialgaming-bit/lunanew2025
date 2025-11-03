@@ -86,7 +86,7 @@ const Hero = ({ onLunaPurchaseClick }) => {
                 boxShadow: `0 0 40px ${glowColor}`,
               }}
             >
-              Get Started Now
+              Purchase LUNA Now
             </Button>
 
             <a href={siteConfig.links.trustpilot} target="_blank" rel="noopener noreferrer">
