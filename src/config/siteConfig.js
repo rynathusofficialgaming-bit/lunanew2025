@@ -58,13 +58,13 @@ export const siteConfig = {
   },
   
   status: {
-    operational: true,
-    message: "",
+    operational: false,
+    message: "Some of our systmes are affected.",
     services: [
-      { name: "LUNA V9", status: "operational" },
+      { name: "LUNA V9", status: "down" },
       { name: "LUNA JOINER", status: "operational" },
       { name: "Dashboard", status: "operational" },
-      { name: "API", status: "operational" },
+      { name: "API", status: "down" },
       { name: "VC CRASHER", status: "operational" },
       { name: "Payment Processing", status: "operational" }
     ]
