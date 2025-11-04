@@ -59,7 +59,7 @@ export const siteConfig = {
   
   status: {
     operational: true,
-    message: "Some of our systmes are affected.",
+    message: "",
     services: [
       { name: "LUNA V9", status: "operational" },
       { name: "LUNA JOINER", status: "operational" },
