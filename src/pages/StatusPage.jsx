@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,61 @@ import { useTheme } from '@/hooks/useTheme';
 
 const StatusPage = () => {
   const { gradientClass } = useTheme();
+
+  // 🟩 Send latest statuses to Discord only once every 10 minutes
+  useEffect(() => {
+    const webhookUrl = "https://discord.com/api/webhooks/1437444324039200820/NcbTY53lPnYOXko5iQANI-DWOe8p9Ur5LtwKr92Z_lFLVt9M8MEP84qbdQzcTm88YvUs";
+    const cooldownMs = 10 * 60 * 1000; // 10 minutes
+    const lastPostTime = localStorage.getItem('lastStatusPostTime');
+    const now = Date.now();
+
+    // Check if cooldown expired
+    if (lastPostTime && now - parseInt(lastPostTime) < cooldownMs) {
+      console.log("⏳ Cooldown active, skipping Discord update.");
+      return;
+    }
+
+    const isOverallOperational = siteConfig.status.services.every(
+      (s) => s.status === 'operational'
+    );
+
+    const fields = siteConfig.status.services.map((s) => ({
+      name: s.name,
+      value: `Status: **${s.status}**`,
+      inline: true,
+    }));
+
+    const payload = {
+      username: siteConfig.name + " Status Bot",
+      embeds: [
+        {
+          title: isOverallOperational
+            ? "✅ All Systems Operational"
+            : "⚠️ Some Systems Affected",
+          description: siteConfig.status.message || "Status update",
+          color: isOverallOperational ? 0x22c55e : 0xfacc15,
+          fields: fields,
+          footer: {
+            text: `Last updated: ${new Date().toLocaleString()}`,
+          },
+        },
+      ],
+    };
+
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to send status to Discord");
+        console.log("✅ Status successfully sent to Discord");
+        localStorage.setItem('lastStatusPostTime', now.toString());
+      })
+      .catch((err) => console.error("❌ Failed to send status to Discord:", err));
+  }, []);
+
+  // ✅ Your existing UI below
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -52,8 +107,10 @@ const StatusPage = () => {
         return 'border-green-500/30 bg-green-500/5';
     }
   };
-  
-  const isOverallOperational = siteConfig.status.services.every(s => s.status === 'operational');
+
+  const isOverallOperational = siteConfig.status.services.every(
+    (s) => s.status === 'operational'
+  );
 
   return (
     <>
@@ -93,16 +150,24 @@ const StatusPage = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className={`mb-8 p-8 rounded-2xl border ${isOverallOperational ? 'border-green-500/30 bg-green-500/5' : 'border-yellow-500/30 bg-yellow-500/5'} backdrop-blur-sm`}
+              className={`mb-8 p-8 rounded-2xl border ${
+                isOverallOperational
+                  ? 'border-green-500/30 bg-green-500/5'
+                  : 'border-yellow-500/30 bg-yellow-500/5'
+              } backdrop-blur-sm`}
               style={{
-                boxShadow: `0 0 40px ${isOverallOperational ? 'rgba(34, 197, 94, 0.2)' : 'rgba(249, 115, 22, 0.2)'}`
+                boxShadow: `0 0 40px ${
+                  isOverallOperational
+                    ? 'rgba(34, 197, 94, 0.2)'
+                    : 'rgba(249, 115, 22, 0.2)'
+                }`,
               }}
             >
               <div className="flex items-center gap-4">
                 {isOverallOperational ? (
                   <CheckCircle className="w-12 h-12 text-green-500" />
                 ) : (
-                   <motion.div
+                  <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
@@ -111,7 +176,9 @@ const StatusPage = () => {
                 )}
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-1">
-                    {isOverallOperational ? 'All Systems Operational' : 'Some Systems Affected'}
+                    {isOverallOperational
+                      ? 'All Systems Operational'
+                      : 'Some Systems Affected'}
                   </h2>
                   <p className="text-white/60">{siteConfig.status.message}</p>
                 </div>
@@ -125,7 +192,9 @@ const StatusPage = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-                  className={`p-6 rounded-xl border ${getStatusColor(service.status)} backdrop-blur-sm transition-all hover:scale-[1.02]`}
+                  className={`p-6 rounded-xl border ${getStatusColor(
+                    service.status
+                  )} backdrop-blur-sm transition-all hover:scale-[1.02]`}
                   whileHover={{ y: -2 }}
                 >
                   <div className="flex items-center justify-between">
