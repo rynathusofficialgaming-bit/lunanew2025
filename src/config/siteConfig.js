@@ -59,13 +59,13 @@ export const siteConfig = {
   
   status: {
     operational: true,
-    message: "Our services are down due to discord recently updating, Check back in a hour.",
+    message: "",
     services: [
-      { name: "LUNA V9", status: "down" },
-      { name: "LUNA JOINER", status: "down" },
+      { name: "LUNA V9", status: "operational" },
+      { name: "LUNA JOINER", status: "operational" },
       { name: "Dashboard", status: "operational" },
       { name: "API", status: "operational" },
-      { name: "VC CRASHER", status: "down" },
+      { name: "VC CRASHER", status: "operational" },
       { name: "Payment Processing", status: "operational" }
     ]
   },
