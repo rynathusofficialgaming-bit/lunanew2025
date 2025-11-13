@@ -59,12 +59,12 @@ export const siteConfig = {
   
   status: {
     operational: true,
-    message: "Some of our backend services are currently experiencing some issues.",
+    message: "",
     services: [
       { name: "LUNA V9", status: "operational" },
-      { name: "LUNA JOINER", status: "down" },
+      { name: "LUNA JOINER", status: "operational" },
       { name: "Dashboard", status: "operational" },
-      { name: "API", status: "down" },
+      { name: "API", status: "operational" },
       { name: "VC CRASHER", status: "operational" },
       { name: "Payment Processing", status: "operational" }
     ]
