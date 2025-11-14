@@ -51,7 +51,7 @@ export const siteConfig = {
   },
   
   purchase: {
-    inStock: true,
+    inStock: false,
     pricePerToken: 0.13,
     outOfStockMessage: "Currently out of stock. Please check back later!",
     inStockMessage: "Email Verified Tokens available now!"
