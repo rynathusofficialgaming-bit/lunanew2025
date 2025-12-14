@@ -78,16 +78,18 @@ const Hero = ({ onLunaPurchaseClick }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button
-              size="lg"
-              onClick={onLunaPurchaseClick}
-              className={`rounded-full px-8 py-6 text-lg bg-gradient-to-r ${gradientClass} hover:opacity-90 transition-opacity`}
-              style={{
-                boxShadow: `0 0 40px ${glowColor}`,
-              }}
-            >
+            <button
+             data-sell-store="59669"     // ← Replace with your Sell.app store slug/ID
+             data-sell-product="291374" // ← Replace with your product slug/ID
+             data-sell-darkmode="true"             // Forces dark mode to match your site's theme
+           // Optional: data-sell-theme="#yourhex" // e.g., "#60a5fa" to match your blue gradient accent
+            className={`rounded-full px-8 py-6 text-lg bg-gradient-to-r ${gradientClass} hover:opacity-90 transition-opacity font-bold text-white`}
+            style={{
+              boxShadow: `0 0 40px ${glowColor}`,
+             }}
+             >
               Purchase LUNA Now
-            </Button>
+            </button>
 
             <a href={siteConfig.links.trustpilot} target="_blank" rel="noopener noreferrer">
               <Button
