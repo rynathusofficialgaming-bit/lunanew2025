@@ -69,25 +69,32 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>{siteConfig.name} - {siteConfig.title}</title>
-        <meta name="description" content={siteConfig.subtitle} />
-      </Helmet>
-      {showSnow && <Snowfall />}
-      <div className="relative overflow-hidden">
-        <Navbar />
-        <Hero onLunaPurchaseClick={() => setIsLunaModalOpen(true)} />
-        <Features />
-        <TokenPurchase onPurchaseClick={() => setIsTokenModalOpen(true)} />
-        <DiscordWidget />
-        <Reviews />
-        <Footer />
-      </div>
-      <PurchaseModal isOpen={isTokenModalOpen} onClose={() => setIsTokenModalOpen(false)} />
-      <LunaPurchaseModal isOpen={isLunaModalOpen} onClose={() => setIsLunaModalOpen(false)} />
-    </>
-  );
-};
+  <>
+    <Helmet>
+      <title>{siteConfig.name} - {siteConfig.title}</title>
+      <meta name="description" content={siteConfig.subtitle} />
+    </Helmet>
+    
+    {showSnow && <Snowfall />}
+    
+    <div className="relative overflow-hidden">
+      <Navbar />
+      <h1 style={{color: 'white', textAlign: 'center', padding: '100px 20px', fontSize: '2rem'}}>
+        ✅ Test: Homepage is loading
+      </h1>
+      
+      {/* Comment out these one by one later */}
+      {/* <Hero onLunaPurchaseClick={() => setIsLunaModalOpen(true)} /> */}
+      {/* <Features /> */}
+      {/* <TokenPurchase onPurchaseClick={() => setIsTokenModalOpen(true)} /> */}
+      {/* <DiscordWidget /> */}
+      {/* <Reviews /> */}
+      {/* <Footer /> */}
+    </div>
+
+    <PurchaseModal isOpen={isTokenModalOpen} onClose={() => setIsTokenModalOpen(false)} />
+    <LunaPurchaseModal isOpen={isLunaModalOpen} onClose={() => setIsLunaModalOpen(false)} />
+  </>
+);
 
 export default HomePage;
